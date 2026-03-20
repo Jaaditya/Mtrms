@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "75413077812",
+    "project_id": "mtrms-6101d",
+    "storage_bucket": "mtrms-6101d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75413077812:android:fe78a89ec7e765093cef61",
+        "android_client_info": {
+          "package_name": "com.example.rms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD221JI_x9QFMbQsNbigVdAgBkGhuNYPOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

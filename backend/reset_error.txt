@@ -1,0 +1,40 @@
+
+  Dropping all tables  225.71ms DONE
+
+   INFO  Preparing database.  
+
+  Creating migration table  37.53ms DONE
+
+   INFO  Running migrations.  
+
+  0001_01_01_000000_create_users_table  98.23ms DONE
+  0001_01_01_000001_create_cache_table  70.81ms DONE
+  0001_01_01_000002_create_jobs_table  75.73ms DONE
+  2026_03_01_052429_create_tenants_table  26.53ms DONE
+  2026_03_01_052430_add_restaurant_id_to_users_table  86.15ms DONE
+  2026_03_01_052430_create_floors_table  71.03ms DONE
+  2026_03_01_052430_create_tables_table  74.06ms DONE
+  2026_03_01_052502_create_categories_table  56.94ms DONE
+  2026_03_01_052502_create_item_addons_table  16.32ms FAIL
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[HY000]: General error: 1824 Failed to open the referenced table 'menu_items' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: rms_db, SQL: alter table `item_addons` add constraint `item_addons_menu_item_id_foreign` foreign key (`menu_item_id`) references `menu_items` (`id`) on delete cascade)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834???             $exceptionType = $this->isUniqueConstraintError($e)
+    835???                 ? UniqueConstraintViolationException::class
+    836???                 : QueryException::class;
+    837??? 
+  ??? 838???             throw new $exceptionType(
+    839???                 $this->getNameWithReadWriteType(),
+    840???                 $query,
+    841???                 $this->prepareBindings($bindings),
+    842???                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:584
+      PDOException::("SQLSTATE[HY000]: General error: 1824 Failed to open the referenced table 'menu_items'")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:584
+      PDOStatement::execute()
+
