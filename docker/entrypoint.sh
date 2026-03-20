@@ -6,8 +6,15 @@ set -e
 # Wait for database if needed (optional)
 # sleep 5
 
-# Run migrations if database is connected
+# Run migrations
 php artisan migrate --force
+
+# Seed if needed (using a simple check or just migrate --seed)
+# Note: migrate --seed runs every time, which might be slow.
+# Better to run it once manually or check if data exists.
+if [ "$(php artisan tinker --execute="echo \App\Models\Tenant::count();")" = "0" ]; then
+    php artisan db:seed --force
+fi
 
 # Ensure .env exists
 if [ ! -f .env ]; then
