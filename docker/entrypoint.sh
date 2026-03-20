@@ -20,8 +20,8 @@ if ! grep -q "APP_KEY=base64:" .env || [ -z "$(grep "APP_KEY=" .env | cut -d '='
 fi
 
 # Ensure SQLite database exists if needed
-if [ "$(grep "DB_CONNECTION=" .env | cut -d '=' -f2)" = "sqlite" ]; then
-    touch database/database.sqlite
+if [ "$(grep "DB_CONNECTION=" .env | cut -d '=' -f2)" = "mysql" ]; then
+    touch database/database.mysql
 fi
 
 # Cache configuration and routes for production speed
