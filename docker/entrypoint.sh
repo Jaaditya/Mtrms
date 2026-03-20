@@ -7,13 +7,13 @@ set -e
 # sleep 5
 
 # Run migrations
-php artisan migrate --force
+php artisan migrate --force --no-interaction
 
-# Seed if needed (using a simple check or just migrate --seed)
-# Note: migrate --seed runs every time, which might be slow.
-# Better to run it once manually or check if data exists.
-if [ "$(php artisan tinker --execute="echo \App\Models\Tenant::count();")" = "0" ]; then
-    php artisan db:seed --force
+# Seed if needed (using a simple check)
+TENANT_COUNT=$(php artisan tinker --execute="echo \App\Models\Tenant::count();" || echo "error")
+if [ "$TENANT_COUNT" = "0" ]; then
+    echo "Database is empty. Seeding..."
+    php artisan db:seed --force --no-interaction
 fi
 
 # Ensure .env exists
