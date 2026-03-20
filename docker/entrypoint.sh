@@ -7,7 +7,7 @@ set -e
 # sleep 5
 
 # Run migrations if database is connected
-# php artisan migrate --force
+php artisan migrate --force
 
 # Ensure .env exists
 if [ ! -f .env ]; then
