@@ -1,0 +1,16 @@
+# Monorepo ignore
+admin/
+frontend/
+.git/
+.vscode/
+.idea/
+
+# Laravel ignore
+backend/node_modules
+backend/vendor
+backend/.env
+backend/storage/*.key
+backend/public/storage
+backend/public/build
+backend/tests
+backend/phpunit.xml
